@@ -1,0 +1,27 @@
+<br />
+
+<div class="container">
+  <div class="row" id="step2">
+    <div class="col-lg-2 col-sm-5">
+        <p class="col-12">Data Type</p>
+
+    </div>
+    <div class="col-lg-8 col-sm-5">
+        <mat-radio-group class="col-12" [formControl]="filterControl">
+            <mat-radio-button value="1" [checked]="true">{{'AdvanceSearch.Person' | translate}}</mat-radio-button>
+            <mat-radio-button value="2" style="padding-left: 10px;">{{'AdvanceSearch.Business' | translate}}</mat-radio-button>
+        </mat-radio-group>
+    </div>
+  </div>
+    <mat-card class="matCard">
+
+        <br>
+        <div class="container-fluid" *ngIf="filterControl.value == 1">
+            <app-persons-advanced-search (personSearchClicked)="onSearchPerson($event)"></app-persons-advanced-search>
+        </div>
+
+        <div class="container-fluid" *ngIf="filterControl.value == 2">
+            <app-businesses-advanced-search (businessSearchClicked)="onSearchBuiness($event)"></app-businesses-advanced-search>
+        </div>
+    </mat-card>
+</div>

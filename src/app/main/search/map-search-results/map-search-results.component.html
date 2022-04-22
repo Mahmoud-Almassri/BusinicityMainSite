@@ -1,0 +1,377 @@
+<div class="page-body">
+  <br />
+  <div class="container bg-bc-gray">
+    <div class="row">
+      <div class="col-lg-2 col-md-4 col-sm-12 align-self-center res">
+        <mat-label style="color: #086C7C;"><b>Result Found : </b>{{totalCount}}</mat-label>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle [routerLink]="['/main/home']" class="btn-toggle-with-border" value="bold"><span
+              class="button-icon">
+              <mat-icon>search</mat-icon>
+            </span>
+            <span class="button-text">Search</span>
+          </mat-button-toggle>
+          <mat-button-toggle [routerLink]="['/main/advance-search']" class="btn-toggle-with-border" value="italic">
+            <span class="button-icon">
+              <mat-icon>tune</mat-icon>
+            </span>
+            <span class="button-text">Advance</span>
+          </mat-button-toggle>
+          <mat-button-toggle [routerLink]="['/main/map-search']" class="btn-toggle-without-border" value="underline">
+            <span class="button-icon">
+              <mat-icon>location_on</mat-icon>
+            </span>
+            <span class="button-text">Map</span>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <!-- <div class="col-lg-2 col-md-6 col-sm-12">
+        <mat-form-field class="col-12" appearance="outline">
+          <mat-icon matPrefix style="color: #086C7C;">send</mat-icon>
+          <mat-label>Action</mat-label>
+          <mat-select>
+            <mat-option></mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> -->
+
+      <div class="col-lg-2 col-md-6 col-sm-12">
+        <mat-form-field class="col-12" appearance="outline">
+          <mat-icon matPrefix style="color: #086C7C;">visibility</mat-icon>
+          <mat-label>{{ 'Search.View' | translate }}</mat-label>
+          <mat-select [formControl]="viewControl">
+            <mat-option [value]="1">Cards</mat-option>
+            <mat-option [value]="2">List</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="viewControl.value == 1">
+      <div class="w-100">
+        <div class="card" *ngFor="let business of businesses">
+          <h4 class="card-header">{{business?.name}}</h4>
+          <mat-tab-group class="remove-border-bottom">
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <img src="../../../../assets/images/info.png" />
+              </ng-template>
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.NationalNumber' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.nationalNumber : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.name' | translate }} </p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.name : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.mobileNumber' | translate }} </p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.mobileNo : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.TollFree' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.tollFree : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.fax' | translate }} </p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.fax : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.Email' | translate }} </p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.email : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+
+              <div class="row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.BusinessType' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.businessType : 'Subscription Required'}}
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <img src="../../../../assets/images/profile.png" />
+              </ng-template>
+              <div class="row info-row">
+                <div class="col-12 col-sm-12 col-md-12">
+                  <h4 class="card-text">{{ 'Search.Contact' | translate }}</h4>
+                </div>
+
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.name' | translate }}</p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.contactInsideCompanyName : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.mobileNumber' | translate }}</p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.contactInsideCompMobile : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row ">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.Email' | translate }}</p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.contactInsideCompEmail : 'Subscription Required'}}
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <img src="../../../../assets/images/location.png" />
+              </ng-template>
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.City' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.city : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.District' | translate }} </p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.district : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.SubDistrict' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.subDistrict : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.Street' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.street : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.complexName' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.complexName : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.complexNumber' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.complexNo : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.POBox' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.pobox : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.PostalCode' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.postalCode : 'Subscription Required'}}
+                </div>
+              </div>
+              <div class="row">
+                <agm-map [latitude]="+business?.latitude"
+                  [longitude]="+business?.longitude" [disableDefaultUI]="true" [zoomControl]="true"
+                  [zoom]="14">
+                  <agm-marker [latitude]="+business?.latitude"
+                    [longitude]="+business?.longitude" [markerDraggable]="false">
+
+                  </agm-marker>
+                </agm-map>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+          <div class="row" style="margin-top: 21px;  margin-left: 23px;">
+            <div class="col-4">
+              <a class="link-btn" (click)="onBusinessDetails(business.id)">
+                View All Details <span class="material-icons">
+                  arrow_right_alt
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+     <div class="row" *ngIf="viewControl.value == 2">
+      <div class="col-12">
+        <h4 class="card-title">Business List</h4>
+        <hr />
+        <br />
+        <mat-table [dataSource]="businessDataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="nationalNumber">
+            <mat-header-cell *matHeaderCellDef> {{ 'Search.NationalNumber' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nationalNumber}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> {{ 'Search.name' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="mobileNo">
+            <mat-header-cell *matHeaderCellDef> {{ 'Search.mobileNumber' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mobileNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="fax">
+            <mat-header-cell *matHeaderCellDef> {{ 'Search.fax' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fax}} </mat-cell>
+          </ng-container>
+
+
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> {{ 'Search.Email' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="businessDisplayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: businessDisplayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+      <div class="col-12">
+        <br />
+        <h4 class="card-title">Person List</h4>
+        <hr />
+        <br />
+        <mat-table [dataSource]="personDataSours" class="mat-elevation-z8">
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> {{ 'Search.name' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.firstName}} {{element.lastName}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="personalEmail">
+            <mat-header-cell *matHeaderCellDef> {{ 'Search.Email' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.personalEmail}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="mobileNo">
+            <mat-header-cell *matHeaderCellDef> {{ 'Search.mobileNumber' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mobileNo}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="saluation">
+            <mat-header-cell *matHeaderCellDef> {{ 'Search.Saluation' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.saluation}} </mat-cell>
+          </ng-container>
+
+
+          <ng-container matColumnDef="gender">
+            <mat-header-cell *matHeaderCellDef> {{ 'Search.Gender' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="personDisplayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: personDisplayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+    <ngb-pagination [pageSize]="itemsPerPage" [(page)]="currentPage" (pageChange)="onPageChange(currentPage)"
+      [collectionSize]="totalCount" aria-label="Default pagination">
+      <ng-template ngbPaginationPrevious>
+        <div class="circular-icon">
+          <mat-icon>arrow_back</mat-icon>
+          <span class="aligned-with-icon">Previous</span>
+        </div>
+
+      </ng-template>
+      <ng-template ngbPaginationNext>
+        <div class="circular-icon">
+          <mat-icon>arrow_forward</mat-icon>
+          <span class="aligned-with-next-icon">Next</span>
+        </div>
+      </ng-template>
+    </ngb-pagination>
+
+  </div>
+  <br />
+</div>

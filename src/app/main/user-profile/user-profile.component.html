@@ -1,0 +1,176 @@
+<div class="container">
+    <br/>
+
+    <div class="row">
+        <div class="col-12">
+            <h3>Person</h3>
+        </div>
+    </div>
+    <div class="row">
+          <form [formGroup]="personForm">
+            <mat-form-field appearance="outline" class="col-12 col-sm-12 col-md-6">
+                <mat-label>{{'Person.firstName' | translate}}</mat-label>
+                <input matInput formControlName="firstName" readonly>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="col-12 col-sm-12 col-md-6">
+                <mat-label>{{'Person.secondName' | translate}}</mat-label>
+                <input matInput formControlName="secondName" readonly>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="col-12 col-sm-12 col-md-6">
+                <mat-label>{{'Person.thirdName' | translate}}</mat-label>
+                <input matInput formControlName="thirdName" readonly>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="col-12 col-sm-12 col-md-6">
+                <mat-label>{{'Person.fourthName' | translate}}</mat-label>
+                <input matInput formControlName="lastName" readonly>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="col-12 col-sm-12 col-md-6">
+                <mat-label>{{'Person.mobileNumber' | translate}}</mat-label>
+                <input matInput formControlName="mobileNo" readonly>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="col-12 col-sm-12 col-md-6">
+                <mat-label>{{'Person.gender' | translate}}</mat-label>
+                <input matInput formControlName="gender" readonly>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="col-12 col-sm-12 col-md-6">
+                <mat-label>{{'Person.personalEmailAddress' | translate}}</mat-label>
+                <input matInput formControlName="personalEmail" readonly>
+              </mat-form-field>
+          </form>
+    </div>
+
+      <br/>
+      <div class="row " *ngIf="jobTitle.length>0">
+        <table class="table bc-table">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th> Company WebSite </th>
+                    <th>Company Phone</th>
+                    <th>Company Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let job of jobTitle">
+                    <td>{{job.businessName}}</td>
+                    <td>{{job. businessWebsite}}</td>
+                    <td>{{job.phoneExtention}}</td>
+                    <td>{{job.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- <div class="container">
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <h3>Person</h3>
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+    <div class="row ">
+        <table class="table bc-table">
+            <thead>
+                <tr>
+                    <th> First Name </th>
+                    <th> Second Name </th>
+                    <th>Third Name </th>
+                    <th>Last Name </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br />
+
+    <div class="row ">
+        <table class="table bc-table">
+            <thead>
+                <tr>
+                    <th>Phone </th>
+                    <th>Mobile </th>
+                    <th>DOB </th>
+                    <th>Gender </th>
+                    <th>Email </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <h3>Company Information</h3>
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+    <div class="row ">
+        <table class="table bc-table">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th> Company WebSite </th>
+                    <th>Company Phone</th>
+                    <th>Company Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <h3>System Information</h3>
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+    <div class="row col-6">
+        <table class="table bc-table">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Last Login</th>
+                    <th>Team</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->

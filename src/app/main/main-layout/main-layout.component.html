@@ -1,0 +1,182 @@
+<div [dir]="dir">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <a class="navbar-brand" style="padding-inline-start: 120px;" routerLink="/main/home"><img src="../../../assets/icons/logoGreen.svg" height="80px"></a>
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <button style="margin-inline-end: 10px;" class="navbar-toggler" type="button" data-toggle="collapse"
+           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+           aria-expanded="false" aria-label="Toggle navigation"
+           (click)="toggleCollapsed()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto nav-mobile-ar">
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleCollapsed()" [routerLink]="['/main/home']" [routerLinkActive]="'active'">{{"Main.home" | translate}}
+            <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleCollapsed()" [routerLink]="['/main/about-us']" [routerLinkActive]="'active'">{{"Main.about" |
+            translate}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleCollapsed()" [routerLink]="['/main/contact-us']" [routerLinkActive]="'active'">{{"Main.contactUs" |
+            translate}}</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedInUser">
+          <a class="nav-link nav-link-mat" mat-button [matMenuTriggerFor]="menu">{{loggedInUserName}} <mat-icon>
+              arrow_drop_down
+            </mat-icon></a>
+          <mat-menu #menu="matMenu" style="z-index: 1050 !important;">
+            <button mat-menu-item color="primary" (click)="toggleCollapsed()" [routerLink]="['/main/user-profile/']">
+
+              <p style="border-bottom: 1px rgb(167 167 167 / 38%) solid;">
+                <span style="color: #218173 !important;
+                font-size: 16px;"><mat-icon class="view-profile-icon">person</mat-icon>{{ 'Main.view' | translate}}</span>
+              </p>
+
+            </button>
+            <button mat-menu-item color="primary" (click)="logout()">
+              <p style="border-bottom: 1px rgb(167 167 167 / 38%) solid;">
+                <span style="color: #ff2525 !important;
+                font-size: 16px;"><mat-icon class="logout-icon">logout</mat-icon>{{ 'Main.logout' | translate}}</span>
+              </p>
+
+            </button>
+          </mat-menu>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedInUser">
+          <button mat-flat-button class="white-button nav-link-btn" style="color: #086C7C !important;" (click)="toggleCollapsed()" [routerLink]="['/auth/signup']"
+            *ngIf="!isLoggedInUser">
+            {{ 'Main.signUp' | translate}}
+          </button>
+        </li>
+        <li class="nav-item li-login-btn" *ngIf="!isLoggedInUser">
+          <button mat-flat-button color="primary" class="nav-link-login" (click)="toggleCollapsed()" [routerLink]="['/login']"
+            *ngIf="!isLoggedInUser">
+            {{ 'Main.login' | translate}}
+          </button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-lang" (click)="toggleLanguage()">{{"Main.lang" |
+            translate}}</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+ <!--  <div class="mat-elevation-z8 text-center py-2">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-4 col-sm-4 col-md-3 d-flex align-items-center order-md-0">
+          <img src="../../../assets/icons/logoGreen.svg" height="80px">
+        </div>
+
+        <div class="col-md-5 inline-pages-wrapper d-flex align-items-center order-md-1 order-4">
+          <button mat-icon-button class="page-button" [routerLink]="['/main/home']" [routerLinkActive]="'active-route'">
+            {{"Main.home" | translate}}
+          </button>
+
+          <button mat-icon-button class="page-button" [routerLink]="['/main/about-us']"
+            [routerLinkActive]="'active-route'">
+            {{"Main.about" | translate}}
+          </button>
+          <button mat-icon-button class="page-button" [routerLink]="['/main/contact-us']"
+            [routerLinkActive]="'active-route'">
+            {{"Main.contactUs" | translate}}
+          </button>
+        </div>
+
+        <div class="col-8 col-sm-8 col-md-4 text-right d-flex align-items-center order-md-2 p-0">
+          <button mat-flat-button class="white-button action-button" [routerLink]="['/auth/signup']"
+            *ngIf="!isLoggedInUser">
+            {{ 'Main.signUp' | translate}}
+          </button>
+
+          <button mat-flat-button color="primary" class="action-button" [routerLink]="['/login']"
+            *ngIf="!isLoggedInUser">
+            {{ 'Main.login' | translate}}
+          </button>
+
+
+          <button mat-icon-button class="action-button" (click)="toggleLanguage()">{{ "Main.lang" |
+            translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
+  <div class="site-body" style="margin-top: 103px;">
+    <router-outlet></router-outlet>
+
+  </div>
+
+
+
+    <footer>
+        <div class="footerImage">
+            <div class="container">
+                <div class="row d-flex justify-content-center pt-3">
+                    <div class="col-md-5 text-center">
+                        <div class="separator"><img src="../../../assets/icons/Group 11250.svg" height="90px;"></div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center pt-3">
+                    <div class="row col-md-5">
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <button mat-icon-button class="footer-button" routerLink="/main/home">
+                                <img src="../../../assets/icons/Home.png">
+                                <span>{{"Main.home" | translate}}</span>
+                            </button>
+
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-center ">
+                            <button mat-icon-button class="footer-button" routerLink="/main/about-us">
+                                <img src="../../../assets/icons/Info.png">
+                                <span>{{"Main.about" | translate}}</span>
+                            </button>
+
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <button mat-icon-button class="footer-button" routerLink="/main/contact-us">
+                                <img src="../../../assets/icons/Message.png">
+                                <span>{{"Main.contactUs" | translate}}</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center pt-3">
+                    <div class="row col-md-5 d-flex justify-content-center ">
+                            <button mat-icon-button class="footer-button">
+                                <img src="../../../assets/icons/youtube.png">
+                            </button>
+
+                            <button mat-icon-button class="footer-button">
+                                <img src="../../../assets/icons/linkedIn.png">
+                            </button>
+                            <button mat-icon-button class="footer-button">
+                                <img src="../../../assets/icons/twitter.png">
+                            </button>
+
+                            <button mat-icon-button class="footer-button">
+                                <img src="../../../assets/icons/facebook.png">
+                            </button>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center pt-3">
+                    <div class="row col-md-5 d-flex justify-content-center ">
+                            <span class="text-white" style="margin-top: 10px;">&copy; {{"Main.copyRight" | translate}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </footer>
+</div>

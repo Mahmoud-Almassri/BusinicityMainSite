@@ -1,0 +1,15 @@
+.card-title {
+  color: #086c7c;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+::deep .mat-form-field-infix {
+  border: 1px solid black !important;
+}
+.form-group {
+  label {
+    color: #17a9a2;
+    margin-inline-start: 8px;
+  }
+}

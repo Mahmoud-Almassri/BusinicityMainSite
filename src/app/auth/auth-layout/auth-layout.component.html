@@ -1,0 +1,47 @@
+<div [class]="getCurrentLang()=='EN'? 'back-ground-image-en bg-edge2edge':'back-ground-image-en bg-edge2edge'" [dir]="dir">
+    <div class="container d-flex justify-content-center">
+        <div class="col-12">
+            <mat-toolbar>
+                <div class="home-wrapper">
+                    <button mat-mini-fab color="primary" [routerLink]="['/main/home']"><i class="fa fa-home"></i></button>
+                    <span class="home-text">{{"Auth.home" | translate}}</span>
+                </div>
+                <div class="social-wrapper">
+                    <span class="example-spacer"></span>
+
+                    <button mat-icon-button class="social-button">
+                        <i class="fa fa-twitter"></i>
+                    </button>
+                    <button mat-icon-button class="social-button">
+                        <i class="fa fa-whatsapp "></i>
+                    </button>
+                    <button mat-icon-button class="social-button">
+                        <i class="fa fa-facebook-f"></i>
+                    </button>
+                    <button mat-icon-button class="social-button">
+                        <i class="fa fa-instagram"></i>
+                    </button>
+                    <button mat-icon-button class="social-button">
+                        <i class="fa fa-youtube-play"></i>
+                    </button>
+                    <span class="content-separator">|</span>
+                    <button mat-icon-button class="social-button" (click) ="toggleLanguage()">
+                        <span class="lang-text">{{ "Auth.lang" | translate}}</span>
+                    </button>
+                </div>
+
+
+
+              </mat-toolbar>
+
+            <div class="row flex-row-reverse">
+                <div class="col-md-6 align-self-center">
+                    <mat-card>
+                        <router-outlet></router-outlet>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

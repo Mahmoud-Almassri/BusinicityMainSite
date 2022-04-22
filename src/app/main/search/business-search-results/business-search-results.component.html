@@ -1,0 +1,391 @@
+<div class="page-body">
+  <br />
+  <div class="container bg-bc-gray">
+    <div class="row">
+      <div class="col-lg-2 col-md-4 col-sm-12 align-self-center res">
+        <mat-label style="color: #086C7C;"><b>{{'Search.ResultFound' | translate}}: </b>{{totalCount}}</mat-label>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle [routerLink]="['/main/home']" class="btn-toggle-with-border" value="bold"><span
+              class="button-icon">
+              <mat-icon>search</mat-icon>
+            </span>
+            <span class="button-text">{{'Search.Search' | translate}}</span>
+          </mat-button-toggle>
+          <mat-button-toggle [routerLink]="['/main/advance-search']" class="btn-toggle-with-border" value="italic">
+            <span class="button-icon">
+              <mat-icon>tune</mat-icon>
+            </span>
+            <span class="button-text">{{'Search.Advance' | translate}}</span>
+          </mat-button-toggle>
+          <mat-button-toggle [routerLink]="['/main/map-search']" class="btn-toggle-without-border" value="underline">
+            <span class="button-icon">
+              <mat-icon>location_on</mat-icon>
+            </span>
+            <span class="button-text">{{'Search.Map' | translate}}</span>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-12">
+        <mat-form-field class="col-12" appearance="outline">
+          <mat-icon matPrefix style="color: #086C7C;">send</mat-icon>
+          <mat-label>Action</mat-label>
+          <mat-select>
+            <mat-option (click)="exportToPdf()">Export To PDF</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-lg-2 col-md-6 col-sm-12">
+        <mat-form-field class="col-12" appearance="outline">
+          <mat-icon matPrefix style="color: #086C7C;">visibility</mat-icon>
+          <mat-label>{{ 'Search.View' | translate }}</mat-label>
+          <mat-select [formControl]="viewControl">
+            <mat-option [value]="1">{{'Search.Card' | translate}}</mat-option>
+            <mat-option [value]="2">{{'Search.List' | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="viewControl.value == 1"
+      [style.text-align]="translate.currentLang == 'EN' ? 'left': 'right'">
+      <div class="w-100">
+        <div class="card" *ngFor="let business of businesses">
+          <h4 class="card-header">{{business?.name}}</h4>
+          <mat-tab-group class="remove-border-bottom">
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <img src="../../../../assets/images/info.png" />
+              </ng-template>
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.NationalNumber' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.nationalNumber : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.name' | translate }} </p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.name : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.mobileNumber' | translate }} </p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.mobileNo : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.TollFree' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.tollFree : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.fax' | translate }} </p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.fax : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.Email' | translate }} </p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.email : 'Subscription Required'}}
+
+                </div>
+              </div>
+              <br />
+
+              <div class="row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.BusinessType' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.businessType : 'Subscription Required'}}
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <img src="../../../../assets/images/profile.png" />
+              </ng-template>
+              <div class="row info-row">
+                <div class="col-12 col-sm-12 col-md-12">
+                  <h4 class="card-text">{{ 'Search.Contact' | translate }}</h4>
+                </div>
+
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.name' | translate }}</p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.contactInsideCompanyName : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.mobileNumber' | translate }}</p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.contactInsideCompMobile : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row ">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.Email' | translate }}</p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.contactInsideCompEmail : 'Subscription Required'}}
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <img src="../../../../assets/images/location.png" />
+              </ng-template>
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.City' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.city : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.District' | translate }} </p>
+
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.district : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.SubDistrict' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.subDistrict : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.Street' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.street : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.complexName' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.complexName : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.complexNumber' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.complexNo : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.POBox' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.pobox : 'Subscription Required'}}
+                </div>
+              </div>
+              <br />
+              <div class="row info-row">
+                <div class="col-4">
+                  <p class="card-text">{{ 'Search.PostalCode' | translate }} </p>
+                </div>
+                <div class="col-8">
+                  {{isLoggedInUser ? business.postalCode : 'Subscription Required'}}
+                </div>
+              </div>
+              <div class="row">
+                <agm-map [latitude]="+business?.latitude" [longitude]="+business?.longitude" [disableDefaultUI]="true"
+                  [zoomControl]="true" [zoom]="14">
+                  <agm-marker [latitude]="+business?.latitude" [longitude]="+business?.longitude"
+                    [markerDraggable]="false">
+                  </agm-marker>
+                </agm-map>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+          <div class="row" style="margin-top: 21px;  margin-left: 23px;">
+            <div class="col-4">
+              <a class="link-btn" (click)="onBusinessDetails(business.id)">
+                View All Details <mat-icon class="material-icons">
+                  arrow_right_alt
+                </mat-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 row" #pdfTable id="print-section" hidden>
+              <div *ngFor="let business of businesses" class="card">
+                <h4 class="card-header">{{business?.name}}</h4>
+                <div class="row info-row">
+                  <div class="col">
+                    <p class="card-text">{{ 'Search.NationalNumber' | translate }} : {{isLoggedInUser ?
+                      business.nationalNumber : 'Subscription Required'}}</p>
+                  </div>
+                </div>
+                <div class="row info-row">
+                  <div class="col">
+                    <p class="card-text">{{ 'Search.name' | translate }} : {{isLoggedInUser ? business.name :
+                      'Subscription Required'}}</p>
+                  </div>
+                </div>
+                <div class="row info-row">
+                  <div class="col">
+                    <p class="card-text">{{ 'Search.mobileNumber' | translate }} : {{isLoggedInUser ? business.mobileNo
+                      :
+                      'Subscription Required'}}</p>
+                  </div>
+                </div>
+                <div class="row info-row">
+                  <div class="col-4">
+                    <p class="card-text">{{ 'Search.name' | translate }} : {{isLoggedInUser ?
+                      business.contactInsideCompanyName : 'Subscription Required'}}</p>
+                  </div>
+                </div>
+                <div class="row info-row">
+                  <div class="col">
+                    <p class="card-text">{{ 'Search.Email' | translate }} : {{isLoggedInUser ?
+                      business.contactInsideCompEmail
+                      : 'Subscription Required'}}</p>
+                  </div>
+                </div>
+                <div class="row info-row">
+                  <div class="col">
+                    <p class="card-text">{{ 'Search.mobileNumber' | translate }} : {{isLoggedInUser ?
+                      business.contactInsideCompMobile : 'Subscription Required'}}</p>
+                  </div>
+                </div>
+                <div class="row info-row">
+                  <div class="col">
+                    <p class="card-text">{{ 'Search.Email' | translate }} : {{isLoggedInUser ? business.email :
+                      'Subscription Required'}}</p>
+
+                  </div>
+                </div>
+                <hr>
+              </div>
+      </div>
+
+    </div>
+
+    <div class="row" *ngIf="viewControl.value == 2"
+      [style.text-align]="translate.currentLang == 'EN' ? 'left': 'right'">
+      <div class="col-12">
+        <h4 class="card-title">{{'Search.BusinessList' | translate}}</h4>
+        <hr />
+        <br />
+        <table class="table bc-table">
+          <thead>
+            <tr>
+              <th>{{ 'Search.NationalNumber' | translate }}</th>
+              <th>{{ 'Search.name' | translate }}</th>
+              <th>{{ 'Search.mobileNumber' | translate }}</th>
+              <th>{{ 'Search.fax' | translate }}</th>
+              <th>{{ 'Search.Email' | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let business of businesses">
+              <td>{{business.nationalNumber}}</td>
+              <td>{{business.name}}</td>
+              <td>{{business.mobileNo}}</td>
+              <td>{{business.fax}}</td>
+              <td>{{business.email}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ngb-pagination [pageSize]="itemsPerPage" [(page)]="currentPage" (pageChange)="onPageChange(currentPage)"
+      *ngIf="businesses?.length > 0" [collectionSize]="totalCount" aria-label="Default pagination"
+      [dir]="translate.currentLang == 'EN' ? 'ltr' : 'rtl'">
+      <ng-template ngbPaginationPrevious>
+        <div class="circular-icon">
+          <mat-icon *ngIf="translate.currentLang == 'AR'">arrow_forward</mat-icon>
+          <mat-icon *ngIf="translate.currentLang == 'EN'">arrow_back</mat-icon>
+          <span class="aligned-with-icon">{{'Main.Previous' | translate}}</span>
+        </div>
+
+      </ng-template>
+      <ng-template ngbPaginationNext>
+        <div class="circular-icon">
+          <mat-icon *ngIf="translate.currentLang == 'EN'">arrow_forward</mat-icon>
+          <mat-icon *ngIf="translate.currentLang == 'AR'">arrow_back</mat-icon>
+          <span
+            [ngClass]="{'aligned-with-next-icon-AR ': translate.currentLang == 'AR', 'aligned-with-next-icon' : translate.currentLang == 'EN' }">{{'Main.Next'
+            | translate}}</span>
+        </div>
+      </ng-template>
+    </ngb-pagination>
+
+    <div class="no-found text-center" style="width: 100%;" *ngIf="businesses?.length == 0">
+      <img src="../../../../assets/images/noFound.svg" />
+      <h4>Sorry ,No Result Found</h4>
+    </div>
+
+  </div>
+  <br />
+</div>

@@ -1,0 +1,114 @@
+<div class="home-back-ground">
+  <div class="container ">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="row justify-content-center" >
+      <h1 class="text-white" style="font-family: 'Tajawal', sans-serif !important;" id="step1" ><b>{{'Main.startSearch' |
+          translate}}</b></h1>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-12 col-md-10 col-lg-8 search-wrapper d-flex justify-content-center">
+        <div class="row">
+          <label class="search-label col-2 col-sm-2 col-md-1 "><i class="fa fa-search search-icon"
+              aria-hidden="true"></i></label>
+          <input type=text placeholder="{{'Main.search' | translate}}" class="col-10 col-sm-10 col-md-5 search-Field"
+            [formControl]="searchControl" (keydown.enter)="onSearch()" id="step2">
+          <button mat-flat-button [routerLink]="['/main/advance-search']" class="col-4 col-sm-4 col-md-2 submit-button"
+            value="italic" id="step3">
+
+            <span *ngIf="getCurrentLang()=='EN'" class="button-text home-search-btn-en">
+              <mat-icon>tune</mat-icon> {{'Search.Advance' | translate}}
+            </span>
+            <span *ngIf="getCurrentLang()=='AR'" class="button-text home-search-btn-ar">
+              <mat-icon>tune</mat-icon> {{'Search.Advance' | translate}}
+            </span>
+          </button>
+          <button mat-flat-button [routerLink]="['/main/map-search']" class="col-4 col-sm-4 col-md-2  submit-button" id="step4"
+            value="underline">
+
+            <span *ngIf="getCurrentLang()=='EN'" class="button-text home-search-btn-en" style="border-inline-end:none;">
+              <mat-icon>location_on</mat-icon>{{'Search.Map' | translate}}
+            </span>
+            <span *ngIf="getCurrentLang()=='AR'" class="button-text home-search-btn-ar" style="border-inline-end:none;">
+              <mat-icon>location_on</mat-icon>{{'Search.Map' | translate}}
+            </span>
+          </button>
+          <button mat-flat-button class="col-4 col-sm-4 col-md-2  submit-button" color="primary" (click)="onSearch()" id="step5">
+            {{'Main.search' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="row justify-content-center" [style.text-align]="translate.currentLang == 'EN' ? 'left': 'right'">
+      <div class="row col-12 col-sm-12 col-md-10 col-lg-8 justify-content-center add-div">
+        <div class="col-12 col-sm-12 col-md-6 d-flex justify-content-center mb-3" [routerLink]="['/main/add-business']" id="step6">
+          <div class="col-5">
+            <img src="../../../assets/icons/Group 5176.svg" width="100%">
+          </div>
+          <div class="col-7">
+            <h3><b class="text-white add-buttons">{{'Main.addBusiness' | translate}}</b></h3>
+            <p class="text-white">{{'Main.businessCountNote' | translate}}</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 d-flex justify-content-center mb-3" [routerLink]="['/main/add-person']" id="step7">
+          <div class="col-5">
+            <img src="../../../assets/icons/addPerson.png" width="100%">
+          </div>
+          <div class="col-7">
+            <h3><b class="text-white add-buttons">{{'Main.addPerson' | translate}}</b></h3>
+            <p class="text-white">{{'Main.personCountNote' | translate}}</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="row text-center">
+      <div class="col-8 align-self-center" >
+        <button class="demo-button"  (click)="OnStartDemo()" style="background: none;">{{ 'Main.ViewDemo' | translate }}</button>
+       </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+
+<div class="container text-center">
+  <h1 *ngIf="getCurrentLang()=='AR'">
+    <b style="color: #D64933;">{{'Main.clients' | translate}}</b>
+    <b>{{'Main.our' | translate}} </b>
+  </h1>
+  <h1 *ngIf="getCurrentLang()=='EN'">
+    <b>{{'Main.our' | translate}} </b>
+    <b style="color: #D64933;">{{'Main.clients' | translate}}</b>
+  </h1>
+  <app-carousel [type]="'clients'"></app-carousel>
+</div>
+<br />
+<br />
+
+<div class="container text-center">
+  <h1 *ngIf="getCurrentLang()=='AR'">
+    <b style="color: #D64933;">{{'Main.partners' | translate}}</b>
+    <b>{{'Main.our' | translate}} </b>
+  </h1>
+  <h1 *ngIf="getCurrentLang()=='EN'">
+    <b>{{'Main.our' | translate}} </b>
+    <b style="color: #D64933;">{{'Main.partners' | translate}}</b>
+  </h1>
+  <app-carousel [type]="'partners'"></app-carousel>
+</div>
+
+<br />
+<br />

@@ -1,0 +1,154 @@
+.home-back-ground {
+  background-image: url("../../../assets/images/walkingBusinessMan.png");
+  min-height: 76vh;
+  background-size: cover;
+  position: relative;
+  background-position: center;
+}
+
+.btn-toggle-with-border {
+    width: 135px;
+    border-inline-end: 1px #d8d8d8 solid;
+    color: #8b8b8b;
+  }
+
+.add-buttons{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.search-label {
+    background-color: #fff;
+    margin-bottom: 0px;
+    .search-icon {
+        margin-top: 12px;
+        color:  #00838f;
+        font-size: x-large;
+      }
+}
+
+.search-Field {
+  min-height: 50px;
+  border-style: none;
+  outline-width: 0;
+}
+.home-search-btn-en{
+  mat-icon{
+    position: absolute;
+    top: 28%;
+    margin-inline-start: -30px;
+    color: #097B87;
+  }
+  padding-inline: 17px;
+  border-inline-end: 1px #D8D8D8 solid;
+}
+.home-search-btn-ar{
+  mat-icon{
+    position: absolute;
+    top: 28%;
+    margin-inline-end: -30px;
+    color: #097B87;
+  }
+  padding-inline: 15px;
+  border-inline-end: 1px #D8D8D8 solid;
+}
+.search-Field:focus{
+    border-bottom:5px solid #00838f;
+}
+
+.submit-button {
+  border-radius: 0px !important;
+
+
+}
+
+.add-div {
+    cursor: pointer !important;
+
+    :hover {
+        transition: transform .2s;
+        transform: scale(1.1);
+
+        * {
+            transform: scale(0.99);
+        }
+      }
+}
+
+
+
+
+
+.brands {
+    width: 100%;
+    padding-top: 90px;
+    padding-bottom: 90px
+}
+
+.brands_slider_container {
+    height: 130px;
+    border: solid 1px #e8e8e8;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    padding-left: 97px;
+    padding-right: 97px;
+    background: #fff
+}
+
+.brands_slider {
+    height: 100%;
+    margin-top: 50px
+}
+
+.brands_item {
+    height: 100%
+}
+
+.brands_item img {
+    max-width: 100%
+}
+
+.brands_nav {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 5px;
+    cursor: pointer
+}
+
+.brands_nav i {
+    color: #e5e5e5;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease
+}
+
+.brands_nav:hover i {
+    color: #676767
+}
+
+.brands_prev {
+    left: 40px
+}
+
+.brands_next {
+    right: 40px
+}
+
+.demo-button{
+   background-color: #17a9a2;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+    box-shadow: inset 0 0 0 0 #fff;
+}
+
+.demo-button:hover{
+  box-shadow: inset 300px 0 0 0 #fff;
+  color: #17a9a2;
+}
+

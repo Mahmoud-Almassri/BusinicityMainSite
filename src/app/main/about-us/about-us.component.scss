@@ -1,0 +1,36 @@
+.contact-back-ground{
+    background-image: url("../../../assets/images/double-exposure-image-business-person.png");
+    min-height: 52vh;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+}
+*{
+  text-align: center;
+}
+
+.img-contiainer{
+    background-image: url("../../../assets/images/double-exposure-businessman-using-mobile-smart-phone.png");
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    width: 100%;
+    min-height: 300px;
+    border-radius: 51px;
+}
+.img-contiainer2{
+    background-image: url("../../../assets/images/innovation-technology-business-finance-background.png");
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    width: 100%;
+    min-height: 300px;
+    border-radius: 51px;
+}
+.opa{
+    position: relative;
+    min-height: 52vh;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+}

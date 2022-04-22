@@ -1,0 +1,66 @@
+<div class="text-center">
+  <h1>{{ 'Auth.login.signIn' | translate }}</h1>
+</div>
+
+<div class="container">
+  <form [formGroup]="signInForm">
+
+    <mat-form-field class='col-md-12'>
+      <mat-label>{{ 'Auth.login.emailAddressOrPhoneNo' | translate }}</mat-label>
+      <input type="text" matInput formControlName='username' />
+    </mat-form-field>
+
+    <mat-form-field class='col-md-12'>
+      <mat-label>{{ 'Auth.login.password' | translate }}</mat-label>
+      <input matInput  placeholder="{{'Auth.login.sixCharactersAtLeast' | translate}}" [type]="hide ? 'password' : 'text'"type="password"  formControlName='password' />
+      <i class="fa fa-eye" matSuffix (click)="hide = !hide"></i>
+    </mat-form-field>
+
+    <div class="row col-md-12">
+      <div class="col-md-8"><a [routerLink]="['/auth/resetPassword']">{{ 'Auth.login.forgotPassword' | translate }}</a></div>
+      <div class="col-md-4">
+        <mat-checkbox>{{ 'Auth.login.rememberMe' | translate }}</mat-checkbox>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="col-md-12 text-center">
+      <button mat-flat-button class="col-md-12" color="primary" (click)="onLogin()">{{ 'Auth.login.login' | translate }}</button>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="col-md-12 text-center">
+      {{ 'Auth.login.noAccountYet' | translate }} <a [routerLink]="['/auth/signup']">{{ 'Auth.login.register' | translate }}</a>
+    </div>
+
+    <br />
+    <div class="separator">{{ 'Auth.login.or' | translate }}</div>
+    <br />
+
+    <div class="col-md-12 text-center">
+      <button mat-flat-button class="col-md-12 linkedin-button" (click)="externalLinkedInLogin()">
+        <div class="d-flex justify-content-center social">
+          <img src="../../../assets/icons/logo-linkedin-icon.png" width="28px" height="28px" />
+          &nbsp; &nbsp;
+          <div>LinkedIn</div>
+        </div>
+      </button>
+    </div>
+
+    <br />
+
+    <div class="col-md-12 text-center">
+      <button mat-flat-button class="col-md-12 google-button" (click)="externalLogin()">
+        <div class="d-flex justify-content-center social">
+          <img src="../../../assets/icons/Logo-google-icon.png" width="30px" height="30px" />
+          &nbsp;&nbsp;
+          <div>Google</div>
+        </div>
+
+      </button>
+    </div>
+  </form>
+</div>

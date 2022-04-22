@@ -1,0 +1,241 @@
+<form [formGroup]="businessSearchForm">
+  <div class="row">
+    <div class="col-6">
+      <h4 class="card-title">{{'AdvanceSearch.Classification' | translate}}</h4>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.Sector' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.Sector' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.Sector' | translate}}" matInput formControlName="sector"
+          [matAutocomplete]="sectorsAuto">
+        <mat-autocomplete autoActiveFirstOption #sectorsAuto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredSectorsOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.SubSector' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.SubSector' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.SubSector' | translate}}" matInput formControlName="subSector"
+          [matAutocomplete]="subSectorsAuto">
+        <mat-autocomplete autoActiveFirstOption #subSectorsAuto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredSubSectorsOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.Group' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.Group' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.Group' | translate}}" matInput formControlName="group"
+          [matAutocomplete]="groupsAuto">
+        <mat-autocomplete autoActiveFirstOption #groupsAuto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredGroupsOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.Filter' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.Filter' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.Filter' | translate}}" matInput formControlName="filter"
+          [matAutocomplete]="filtersAuto">
+        <mat-autocomplete autoActiveFirstOption #filtersAuto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredFiltersOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h4 class="card-title">{{'AdvanceSearch.General' | translate}}</h4>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.NID' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.NID' | translate}}</mat-label>
+        <input type="text" matInput />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.RegistrationDate' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.RegistrationDate' | translate}}</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.Employees_W_Branches' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.Employees_W_Branches' | translate}}</mat-label>
+        <input type="text" matInput />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.BusinessStatus' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.BusinessStatus' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.BusinessStatus' | translate}}" matInput
+          formControlName="businessStatus" [matAutocomplete]="businessStatusAuto">
+        <mat-autocomplete autoActiveFirstOption #businessStatusAuto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredBusinessStatusesOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.CorporateType' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.CorporateType' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.CorporateType' | translate}}" matInput
+          formControlName="corporateType" [matAutocomplete]="corporateTypesAuto">
+        <mat-autocomplete autoActiveFirstOption #corporateTypesAuto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredCorporateTypesOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+   <!--  <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.CorporateType' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.CorporateType' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.CorporateType' | translate}}" matInput
+          formControlName="corporateType" [matAutocomplete]="corporateTypesAuto">
+        <mat-autocomplete autoActiveFirstOption #corporateTypesAuto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredCorporateTypesOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div> -->
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.PartnerNationality' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.PartnerNationality' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.PartnerNationality' | translate}}" matInput
+          formControlName="partnerNationality" [matAutocomplete]="nationalityAuto">
+        <mat-autocomplete autoActiveFirstOption #nationalityAuto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredNationalitiesOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.AccountType' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.AccountType' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.AccountType' | translate}}" matInput
+          [formControl]="accountTypeControl" [matAutocomplete]="accountTypesAuto">
+        <mat-autocomplete autoActiveFirstOption #accountTypesAuto="matAutocomplete"
+          (optionSelected)="accountTypeSelected($event)">
+          <mat-option *ngFor="let option of filteredAccountTypesOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.FromCapital' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label> {{'AdvanceSearch.FromCapital' | translate}}</mat-label>
+        <input type="text" matInput />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.ToCapital' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.ToCapital' | translate}}</mat-label>
+        <input type="text" matInput />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.Status' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.Status' | translate}}</mat-label>
+        <input type="text" matInput />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h4 class="card-title">{{'AdvanceSearch.AddressInformation' | translate}}</h4>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.Country' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.Country' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.Country' | translate}}" matInput formControlName="country"
+          [matAutocomplete]="countryAuto">
+        <mat-autocomplete autoActiveFirstOption #countryAuto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredCountriesOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.City' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.City' | translate}}</mat-label>
+        <input type="text" placeholder="{{'AdvanceSearch.City' | translate}}" matInput formControlName="city"
+          [matAutocomplete]="cityAuto">
+        <mat-autocomplete autoActiveFirstOption #cityAuto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredCitiesOptions | async" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.District' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.District' | translate}}</mat-label>
+        <input type="text" matInput formControlName="district" />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.SubDistrict' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.SubDistrict' | translate}}</mat-label>
+        <input type="text" matInput formControlName="subDistrict" />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="row">{{'AdvanceSearch.Street' | translate}} </label>
+      <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+        <mat-label>{{'AdvanceSearch.Street' | translate}}</mat-label>
+        <input type="text" matInput formControlName="street" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row w-100">
+    <button mat-flat-button color="primary" (click)="onSearchBuiness()" class="submit-button">
+      {{ 'Main.submit' | translate}}
+    </button>
+  </div>
+</form>

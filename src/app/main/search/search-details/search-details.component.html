@@ -1,0 +1,419 @@
+<br />
+<div class="container" *ngIf="isBusiness" [style.text-align]="translate.currentLang == 'EN' ? 'left': 'right'">
+  <div class="row">
+    <div class="card">
+      <h4 class="card-header">
+        {{businessSearchObject?.name}}
+      </h4>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.NationalNumber' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p> {{businessSearchObject?.nationalNumber}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'Search.name' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.name}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.mobileNumber' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.mobileNo}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.TollFree' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.tollFree}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.fax' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.fax}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.Email' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.email}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.WebSite' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.website}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.BusinessType' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.businessType}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.Brands' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.brands}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.BusinessStatus' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.businessStatus}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.NoOfEmployye' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.noOfEmployees}}</p>
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.lastUpdate' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.modifiedDate | date}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4 class="card-header">
+        {{ 'AdvanceSearch.Contact' | translate }}
+      </h4>
+      <div class="row">
+        <table class="table bc-table">
+          <thead>
+            <tr>
+              <th> Name </th>
+              <th> Number </th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{businessSearchObject?.contactInsideCompanyName}}</td>
+              <td>{{businessSearchObject?.contactInsideCompMobile}}</td>
+              <td>{{businessSearchObject?.contactInsideCompEmail}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+
+      <h4 class="card-header">
+        {{ 'AdvanceSearch.AddressInformation' | translate }}
+      </h4>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.Country' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.country}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.City' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.city}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.District' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.district}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.SubDistrict' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.subDistrict}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.Street' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.street}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.ComplexName' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.complexName}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.complexNumber' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.complexNo}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.POBox' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.pobox}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.PostalCode' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.postalCode}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4 class="card-header">
+        {{ 'AdvanceSearch.Map' | translate }}
+      </h4>
+      <div class="row">
+        <agm-map [latitude]="businessSearchObject?.latitude" [longitude]="businessSearchObject?.longitude" [disableDefaultUI]="true" [zoomControl]="true"
+          [zoom]="14">
+          <agm-marker [latitude]="businessSearchObject?.latitude"
+            [longitude]="businessSearchObject?.longitude" [markerDraggable]="false">
+          </agm-marker>
+        </agm-map>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4 class="card-header">
+        {{ 'AdvanceSearch.Classification' | translate }}
+      </h4>
+      <div class="row">
+        <ul>
+          <li *ngFor="let class of businessClassficationList"><span class="sector-text">{{class.sector}}</span>
+            <ol>
+              <li><span class="subSector-text">{{class.subSector}}</span>
+                <ol>
+                  <li><span class="group-text">{{class.group}}</span>
+                    <ol>
+                      <li>
+                        <span class="filter-text">{{class.filter}}</span>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4 class="card-header">
+        {{ 'AdvanceSearch.CommercalDetails' | translate }}
+      </h4>
+     <!--  <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.Affillate' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p></p>
+        </div>
+      </div> -->
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.CorporateType' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.corporateType}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.RegistrationDate' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.registrationDate | date}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.AuthorizedSignatories' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.authorizedSignatories}}</p>
+        </div>
+      </div>
+      <div class="row info-row">
+        <div class="col-6">
+          <p class="card-text">{{ 'AdvanceSearch.PaidUpCapital' | translate }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{businessSearchObject?.paidableCapital}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4 class="card-header">
+        {{ 'AdvanceSearch.BordOfDierictors' | translate }}
+      </h4>
+      <div class="row">
+        <table class="table bc-table">
+          <thead>
+            <tr>
+              <th> Member Name </th>
+              <th> Description </th>
+              <th>Date Of Election</th>
+              <th>Represented</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let board of bordOfDirectorsDataSource">
+              <td>{{board.memberName}}</td>
+              <td>{{board.description}}</td>
+              <td>{{board.electionDate | date}}</td>
+              <td>{{board.represented}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <h4 class="card-header">
+        {{ 'AdvanceSearch.Partners' | translate }}
+      </h4>
+      <div class="row">
+        <table class="table bc-table">
+          <thead>
+            <tr>
+              <th> Member Name </th>
+              <th> Nationality </th>
+              <th>Share</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let part of partnersDataSource">
+              <td>{{part.memberName}}</td>
+              <td>{{part.nationality}}</td>
+              <td>{{part.share}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!--if Person-->
+<div class="container" *ngIf="isPerson" [style.text-align]="translate.currentLang == 'EN' ? 'left': 'right'">
+  <div class="card">
+    <h4 class="card-header">{{personSearchObject.firstName}} {{personSearchObject.lastName}} </h4>
+
+    <div class="row info-row">
+      <div class="col-4">
+        <p class="card-text">{{ 'Search.name' | translate }} </p>
+      </div>
+      <div class="col-8">
+        {{personSearchObject.firstName}} {{personSearchObject.secondName}} {{personSearchObject.thirdName}}
+        {{personSearchObject.lastName}}
+
+      </div>
+    </div>
+    <br />
+    <div class="row info-row">
+      <div class="col-4">
+        <p class="card-text">{{ 'Search.mobileNumber' | translate }} </p>
+
+      </div>
+      <div class="col-8">
+        {{personSearchObject.mobileNo}}
+
+      </div>
+    </div>
+    <br />
+
+    <div class="row info-row">
+      <div class="col-4">
+        <p class="card-text">{{ 'Search.Email' | translate }} </p>
+
+      </div>
+      <div class="col-8">
+        {{personSearchObject.personalEmail}}
+
+      </div>
+    </div>
+
+
+    <div class="row info-row">
+      <div class="col-4">
+        <p class="card-text">{{ 'Search.saluation' | translate }}</p>
+
+      </div>
+      <div class="col-8">
+        {{personSearchObject.saluation }}
+      </div>
+    </div>
+    <br />
+
+    <div class="row info-row">
+      <div class="col-4">
+        <p class="card-text">{{ 'Search.Gender' | translate }}</p>
+
+      </div>
+      <div class="col-8">
+        {{personSearchObject.gender }}
+      </div>
+    </div>
+
+  </div>
+</div>

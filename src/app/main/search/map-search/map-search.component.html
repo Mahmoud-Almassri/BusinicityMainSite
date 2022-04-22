@@ -1,0 +1,36 @@
+<div class="row p-5" style="justify-content: flex-end;">
+  <div class="col">
+    <h2>Choose your area and click on search to get your result</h2>
+  </div>
+  <div class="col align-self-center text-center" >
+    <button class="demo-button"  (click)="OnStartDemo()">{{ 'Main.ViewDemo' | translate }}</button>
+   </div>
+  <div class="col"><button style="float: right;width: 40vh;" (click)="search()" mat-raised-button id="step2"
+      color="primary">Search</button></div>
+
+</div>
+<div class="row">
+  <agm-map [latitude]="lat" [longitude]="lng" [disableDefaultUI]="false" [zoomControl]="true" [zoom]="14" id="step1"
+    (mapClick)="mapClicked($event)">
+
+    <!--  <agm-marker
+      *ngFor="let m of markers; let i = index"
+      (markerClick)="clickedMarker(m.label, i)"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [label]="m.label"
+      [markerDraggable]="m.draggable"
+      (dragEnd)="markerDragEnd(m, $event)">
+
+    <agm-info-window>
+      <strong>InfoWindow content</strong>
+    </agm-info-window>
+
+  </agm-marker> -->
+
+    <agm-circle [latitude]="lat" [longitude]="lng" [radius]="radius" [fillColor]="'#00838f'" [circleDraggable]="true" 
+      (radiusChange)="radiusChange($event)" (dragEnd)="markerDragEnd($event)" [editable]="true">
+    </agm-circle>
+
+  </agm-map>
+</div>

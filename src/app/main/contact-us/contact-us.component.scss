@@ -1,0 +1,71 @@
+.contact-back-ground{
+    background-image: url("../../../assets/images/abouUs.png");
+    min-height: 52vh;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+}
+.mat-icon{
+  font-size: 25px !important;
+}
+.mat-form-field-infix{
+  padding-inline-start: 5px !important;
+}
+
+.contact-box{
+    padding: 25px;
+    width: 100%;
+    max-height: 200px;
+
+    min-height: 120px;
+    background-color: #097B87;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.lab{
+    color: #fff;
+    padding: 10px;
+}
+.opa{
+    position: relative;
+    min-height: 52vh;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+}
+
+agm-map {
+    height: 30vh;
+    width: 100%;
+  }
+
+  .row-icon{
+    width: 42px;
+    height: 42px;
+    border-radius: 25px;
+    background-color: #fff;
+    color: #097B87;
+    text-align: center;
+    display: block;
+    padding: 9px;
+  }
+  .row-text{
+    width: 80%;
+    margin-left: 11px;
+    display: inline;
+    color: #fff;
+  }
+  .icon-text{
+    position: absolute;
+    margin-inline-start: 50px;
+    top: 12px;
+    font-size: 18px;
+    color: white;
+  }
+  map{
+      border-radius: 20px;
+  }
+  .form{
+    padding-top: 20px;
+  }

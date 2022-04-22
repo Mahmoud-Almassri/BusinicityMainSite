@@ -1,0 +1,31 @@
+.linkedin-button {
+    background-color: #2e54a2;
+    color: #ffffff;
+  }
+
+  .google-button {
+    background-color: #ffffff;
+    border: 1px solid lightgrey;
+    color: gray;
+  }
+
+.social {
+  margin-bottom: -6px;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  pointer-events: none !important;
+}
+
+
+.mat-flat-button  {
+  padding: 6px !important;
+}
+
+a {
+  color:  #00838f !important;
+}
+.mobileNo{
+  position: absolute;
+}
+

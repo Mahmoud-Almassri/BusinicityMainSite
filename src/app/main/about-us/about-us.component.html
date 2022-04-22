@@ -1,0 +1,48 @@
+<div class="contact-back-ground">
+    <div class="opa">
+    <div class="container">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <div class="row justify-content-center">
+            <h1 class="text-white"><b>{{'About.aboutUs' | translate}}</b></h1>
+        </div>
+        <div class="row justify-content-center">
+            <h3 class="text-white">{{translate.currentLang == 'EN' ? appSettings?.aboutUsTitle : appSettings?.aboutUsTitleAR}}</h3>
+        </div>
+
+        <br />
+        <br />
+
+    </div>
+</div>
+</div>
+<br/>
+<div class="container">
+    <div class="row" [style.text-align]="translate.currentLang == 'EN' ? 'left': 'right'">
+        <div class="col-12 col-sm-12 col-md-6 justify-content-center">
+            <div class="img-contiainer ">
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 p-5">
+            <h3 style="text-align: start;">{{translate.currentLang == 'EN' ? appSettings?.aboutUsDescription : appSettings?.aboutUsDescriptionAR}}</h3>
+        </div>
+    </div>
+    <br/>
+    <div class="row" [style.text-align]="translate.currentLang == 'EN' ? 'left': 'right'">
+        <div class="col-12 col-sm-12 col-md-6 justify-content-center about-contant  p-5">
+            <h1>{{'About.ourVision' | translate}}</h1>
+            <h3 style="text-align: start;">{{translate.currentLang == 'EN' ? appSettings?.aboutUsVision : appSettings?.aboutUsVisionAR}}</h3>
+                <h1>{{'About.ourMission' | translate}}</h1>
+            <h3 style="text-align: start;">{{translate.currentLang == 'EN' ? appSettings?.aboutUsMision : appSettings?.aboutUsMisionAR}}</h3>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 justify-content-center"  >
+            <div class="img-contiainer2" >
+            </div>
+        </div>
+    </div>
+    <br/>
+</div>

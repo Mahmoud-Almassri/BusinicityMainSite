@@ -1,0 +1,95 @@
+<div class="contact-back-ground">
+    <div class="opa">
+        <div class="container">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <div class="row justify-content-center">
+                <h1 class="text-white"><b>{{'Contact.contactUs' | translate}}</b></h1>
+            </div>
+            <div class="row justify-content-center">
+                <p class="text-white">{{translate.currentLang == 'EN' ? appSettings?.contactUsTitle : appSettings?.contactUsTitleAR}}</p>
+            </div>
+
+            <br />
+            <br />
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-6">
+            <div class="row">
+                <form [formGroup]="contactUsForm" class="form">
+
+                    <mat-form-field class='col-md-12'>
+                        <mat-icon style="color: #097B87;" matPrefix>person_outline</mat-icon>
+                        <mat-label>{{ 'Contact.name' | translate }}</mat-label>
+                        <input type="text" matInput formControlName='name' />
+                    </mat-form-field>
+
+                    <mat-form-field class='col-md-12'>
+                        <mat-icon style="color: #097B87;" matPrefix>email_outline</mat-icon>
+                        <mat-label>{{ 'Contact.email' | translate }}</mat-label>
+                        <input type="text" matInput formControlName='email' />
+                    </mat-form-field>
+
+                    <mat-form-field class='col-md-12'>
+                        <mat-icon style="color: #097B87;" matPrefix>info_outline</mat-icon>
+
+                        <mat-label>{{ 'Contact.subject' | translate }}</mat-label>
+                        <input type="text" matInput formControlName='subject' />
+                    </mat-form-field>
+
+                    <mat-form-field class='col-md-12'>
+                        <mat-label>{{ 'Contact.message' | translate }}</mat-label>
+                        <textarea matInput formControlName='message'></textarea>
+                    </mat-form-field>
+                    <button mat-flat-button class="col-4" color="primary" (click)="onSubmitContactUs()"
+                        >{{ 'Contact.submit' | translate }}</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6">
+            <div class="contact-box">
+                <div class="row" [style.text-align]="translate.currentLang == 'EN' ? 'left': 'right'">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <span>
+                          <mat-icon class="row-icon">room_outline</mat-icon>
+                          <p class="icon-text">{{appSettings?.address}}</p>
+                        </span>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                      <span>
+                        <mat-icon class="row-icon">phone_in_talk</mat-icon>
+                        <p class="icon-text">{{appSettings?.contactUsMobileNo}}</p>
+                      </span>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                      <span>
+                        <mat-icon class="row-icon">email</mat-icon>
+                        <p class="icon-text">{{appSettings?.contactUsEmail}}</p>
+                      </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="map">
+                <agm-map [latitude]="convertToNumber(appSettings?.contactUsLatitude)"
+                    [longitude]="convertToNumber(appSettings?.contactUsLongitude)" [disableDefaultUI]="true"
+                    [zoomControl]="true" [zoom]="14">
+                    <agm-marker [latitude]="convertToNumber(appSettings?.contactUsLatitude)"
+                        [longitude]="convertToNumber(appSettings?.contactUsLongitude)" [markerDraggable]="false">
+                    </agm-marker>
+                </agm-map>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>

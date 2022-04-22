@@ -1,0 +1,104 @@
+<br />
+<div class="container">
+  <mat-card class="matCard">
+    <form [formGroup]="businessForm" id="step1">
+      <mat-card-header class="col-12">
+        <div class="col-6" [style.text-align]="translate.currentLang == 'EN' ? 'left': 'right'">
+          <mat-card-title>
+            <h4 class="card-title" >{{ 'Business.general' | translate }}</h4>
+          </mat-card-title>
+        </div>
+       
+        <div class="col-6 align-self-center" [style.text-align]="translate.currentLang == 'EN' ? 'right': 'left'">
+          <button class="demo-button"  (click)="OnStartDemo()">{{ 'Main.ViewDemo' | translate }}</button>
+         </div>
+      </mat-card-header>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label class="row">{{'Business.nameOfBusiness' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Business.nameOfBusiness' | translate }}</mat-label>
+            <input type="text" matInput formControlName='name' />
+            <mat-error *ngIf="businessForm.get('name').invalid" style="color: red !important;">{{'Business.NameError' |
+              translate}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Business.nationalId' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Business.nationalId' | translate }}</mat-label>
+            <input type="text" matInput formControlName='nationalNumber' />
+            <mat-error *ngIf="businessForm.get('nationalNumber').invalid" style="color: red !important;">
+              {{'Business.NationalId' | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Business.mobileNumber' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Business.mobileNumber' | translate }}</mat-label>
+            <input type="text" matInput formControlName='mobileNo' />
+            <mat-error *ngIf="businessForm.get('mobileNo').invalid" style="color: red !important;">
+              {{'Business.MobileError' | translate}}</mat-error>
+
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Business.additionalInfo' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Business.additionalInfo' | translate }}</mat-label>
+            <input type="text" matInput formControlName='additionalInfo' />
+          </mat-form-field>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <mat-card-header>
+          <mat-card-title>
+            <h4 class="card-title">{{ 'Business.contactinsideCompany' | translate }}</h4>
+          </mat-card-title>
+        </mat-card-header>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label class="row">{{'Business.name' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Business.name' | translate }}</mat-label>
+            <input type="text" matInput formControlName="contactInsideCompanyName" />
+            <mat-error *ngIf="businessForm.get('contactInsideCompanyName').invalid" style="color: red !important;">
+              {{'Business.ContactInsideName' | translate}}</mat-error>
+
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Business.mobileNumber' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Business.mobileNumber' | translate }}</mat-label>
+            <input type="text" matInput formControlName='contactInsideCompMobile' />
+            <mat-error *ngIf="businessForm.get('contactInsideCompMobile').invalid" style="color: red !important;">
+              {{'Business.MobileError' | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Business.emailAddress' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Business.emailAddress' | translate }}</mat-label>
+            <input type="text" matInput formControlName='contactInsideCompEmail' />
+            <mat-error *ngIf="businessForm.get('contactInsideCompEmail').invalid" style="color: red !important;">
+              {{'Business.EmailError' | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <button style="margin: 10px;" mat-flat-button color="primary" (click)="onSave()" id="step2"
+          class="submit-button">
+          {{ 'Main.submit' | translate}}
+        </button>
+        <button style="margin: 12px;" mat-flat-button (click)="onCancel()" class="cancel-button">
+          {{ 'Main.cancel' | translate}}
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+<br />

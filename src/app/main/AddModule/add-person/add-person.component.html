@@ -1,0 +1,215 @@
+<br />
+<div class="container">
+  <mat-card class="matCard">
+    <form [formGroup]="personForm" id="step1">
+      <mat-card-header class="col-12">
+        <div class="col-6" [style.text-align]="translate.currentLang == 'EN' ? 'left': 'right'">
+          <mat-card-title>
+            <h4 class="card-title">{{ 'Person.general' | translate }}</h4>
+          </mat-card-title>
+        </div>
+        <div class="col-6 align-self-center" [style.text-align]="translate.currentLang == 'EN' ? 'right': 'left'">
+          <button class="demo-button"  (click)="OnStartDemo()">{{ 'Main.ViewDemo' | translate }}</button>
+         </div>
+      </mat-card-header>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label class="row">{{'Person.firstName' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Person.firstName' | translate }}</mat-label>
+            <input type="text" matInput formControlName='firstName' />
+            <mat-error *ngIf="personForm.get('firstName').invalid" style="color: red !important;"> {{'Person.NameError'
+              | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Person.secondName' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Person.secondName' | translate }}</mat-label>
+            <input type="text" matInput formControlName='secondName' />
+            <mat-error *ngIf="personForm.get('secondName').invalid" style="color: red !important;"> {{'Person.NameError'
+              | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Person.thirdName' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Person.thirdName' | translate }}</mat-label>
+            <input type="text" matInput formControlName='thirdName' />
+            <mat-error *ngIf="personForm.get('thirdName').invalid" style="color: red !important;"> {{'Person.NameError'
+              | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Person.fourthName' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Person.fourthName' | translate }}</mat-label>
+            <input type="text" matInput formControlName='lastName' />
+            <mat-error *ngIf="personForm.get('lastName').invalid" style="color: red !important;"> {{'Person.NameError' |
+              translate}}</mat-error>
+
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Person.gender' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Person.gender' | translate }}</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="Male">Male</mat-option>
+              <mat-option value="Female">Female</mat-option>
+            </mat-select>
+            <mat-error *ngIf="personForm.get('gender').invalid" style="color: red !important;"> {{'Person.GenderError' |
+              translate}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Person.Salutation' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Person.Salutation' | translate }}</mat-label>
+            <input type="text" matInput formControlName='saluation' />
+            <mat-error *ngIf="personForm.get('saluation').invalid" style="color: red !important;">
+              {{'Person.SalutationError' | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Person.mobileNumber' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Person.mobileNumber' | translate }}</mat-label>
+            <input type="text" matInput formControlName='mobileNo' />
+            <mat-error *ngIf="personForm.get('mobileNo').invalid" style="color: red !important;">{{'Person.MobileError'
+              | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="row">{{'Person.personalEmailAddress' | translate}} </label>
+          <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+            <mat-label>{{ 'Person.personalEmailAddress' | translate }}</mat-label>
+            <input type="text" matInput formControlName='personalEmail' />
+            <mat-error *ngIf="personForm.get('personalEmail').invalid" style="color: red !important;">
+              {{'Person.EmailError' | translate}}</mat-error>
+
+          </mat-form-field>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <mat-card-header>
+          <mat-card-title>
+            <h4 class="card-title">{{ 'Person.jobTitle' | translate }}</h4>
+          </mat-card-title>
+        </mat-card-header>
+      </div>
+      <form [formGroup]="personJobForm">
+
+        <div class="row">
+
+          <div class="form-group col-md-6">
+            <label class="row">{{'Person.companyName' | translate}} </label>
+            <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+              <mat-label>{{ 'Person.companyName' | translate }}</mat-label>
+              <input type="text" placeholder="{{ 'Person.companyName' | translate }}" matInput
+                [formControl]="myBusinessControl" [matAutocomplete]="autoBusiness">
+              <mat-autocomplete autoActiveFirstOption #autoBusiness="matAutocomplete"
+                (optionSelected)="BusinessSelected($event)">
+                <mat-option *ngFor="let option of filteredBusinessOptions | async" [value]="option.name">{{option.name}}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngIf="personJobForm.get('businessId').invalid" style="color: red !important;"> {{
+                'Person.BusinessError' | translate }}</mat-error>
+
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="row">{{'Person.jobTitle' | translate}} </label>
+            <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+              <mat-label>{{ 'Person.jobTitle' | translate }}</mat-label>
+              <input type="text" placeholder="{{ 'Person.jobTitle' | translate }}" matInput [formControl]="myControl"
+                [matAutocomplete]="auto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                (optionSelected)="jobTitleSelected($event)">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">{{option.name}}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngIf="personJobForm.get('jobTitle').invalid" style="color: red !important;">{{
+                'Person.JobTitleError' | translate }}</mat-error>
+
+            </mat-form-field>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="row">{{'Person.phoneExtension' | translate}} </label>
+            <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+              <mat-label>{{ 'Person.phoneExtension' | translate }}</mat-label>
+              <input type="text" matInput formControlName='phoneExtention' />
+              <mat-error *ngIf="personJobForm.get('phoneExtention').invalid" style="color: red !important;">{{
+                'Person.phoneExtentionError' | translate }}</mat-error>
+
+            </mat-form-field>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="row">{{'Person.emailAddress' | translate}} </label>
+            <mat-form-field class="example-full-width search-field  w-100 row" [floatLabel]="'never'">
+              <mat-label>{{ 'Person.emailAddress' | translate }}</mat-label>
+              <input type="text" matInput formControlName='email' />
+              <mat-error *ngIf="personJobForm.get('phoneExtention').invalid" style="color: red !important;"> {{
+                'Person.EmailError' | translate }}</mat-error>
+
+            </mat-form-field>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <button mat-flat-button class="col-6" color="primary" (click)="onAddPersonJob()"
+              [disabled]="personJobForm.invalid">{{ 'Person.add' | translate }}</button>
+          </div>
+
+        </div>
+      </form>
+
+      <br />
+      <br />
+      <br />
+      <div class="row" *ngIf="personJobList.length">
+        <table class="table bc-table">
+          <thead>
+            <tr>
+              <th>{{ 'Person.companyName' | translate }}</th>
+              <th>{{ 'Person.jobTitle' | translate }}</th>
+              <th>{{ 'Person.phoneExtension' | translate }}</th>
+              <th>{{ 'Person.emailAddress' | translate }}</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let job of personJobList">
+              <td>{{getBusinessName(job?.businessId)}}</td>
+              <td>{{job.jobTitle}}</td>
+              <td>{{job.phoneExtention}}</td>
+              <td>{{job.email}}</td>
+              <td>
+                <button (click)="onDeletePersonJob(job)" class="btn btn-danger m-2" mat-icon-button
+                  aria-label="Deactivate">
+                  <mat-icon>delete_forever</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="row">
+        <button style="margin: 10px;" mat-flat-button color="primary" (click)="onSave()" id="step2"
+          class="submit-button">
+          {{ 'Main.submit' | translate}}
+        </button>
+        <button style="margin: 12px;" mat-flat-button (click)="onCancel()" class="cancel-button">
+          {{ 'Main.cancel' | translate}}
+        </button>
+
+      </div>
+    </form>
+  </mat-card>
+</div>
+<br />

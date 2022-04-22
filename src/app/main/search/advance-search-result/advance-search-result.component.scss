@@ -1,0 +1,26 @@
+.card{
+    width: 80%;
+    border-radius: 20px;
+    color: #086C7C;
+    box-shadow: 10px 10px 20px rgba($color: #086C7C, $alpha: 0.4);
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+}
+
+.card-header{
+    font-size: 1.5rem;
+    font-weight: 50;
+    color: white;
+    background-color: #086C7C;
+    margin-bottom: 1.5rem;
+}
+
+.card-text{
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    line-height: 1.7rem;
+    color: #17A9A2;
+    padding-left: 1.5rem;
+    padding-bottom: 1rem;
+}
+

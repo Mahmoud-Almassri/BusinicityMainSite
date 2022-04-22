@@ -1,0 +1,282 @@
+.page-body {
+  background-color: #f2f2f2 !important;
+  min-height: 65vh;
+}
+
+.no-found{
+  width: 100%;
+  margin-top: 100px;
+}
+.tablinks {
+  color: #fff;
+  display: inline-flex;
+  cursor: pointer;
+  margin: 10px;
+  background: none;
+  position: relative;
+  border: 1px solid #086c7c;
+  height: 50px;
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#icon {
+  display: none;
+}
+
+.menu li {
+  display: inline;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+/* .menu li:hover{
+  color:#086C7C;
+  background-color: #f6e6cb;
+
+} */
+.active {
+  border-bottom: 4px solid rgb(170, 167, 167);
+}
+.btn2:hover {
+  color: #086c7c;
+  background-color: #fff;
+}
+
+.btn2:active {
+  border-bottom: 1 solid #fff;
+}
+
+.btn {
+  border: 1px solid #086c7c;
+  color: #086c7c;
+  display: inline-flex;
+  cursor: pointer;
+  margin: 10px;
+  background: none;
+  position: relative;
+}
+.button-text,
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+}
+.btn1:hover {
+  color: #fff;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #086c7c;
+  z-index: -1;
+  transition: 0.8s;
+}
+.btn1::before {
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+
+.btn1:hover::before {
+  height: 100%;
+}
+
+.card {
+  width: 80%;
+  border-radius: 20px;
+  color: #086c7c;
+  background-color: white;
+
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+.card-header {
+  font-size: 1.5rem;
+  font-weight: 50;
+  color: white;
+  background-color: #086c7c;
+  margin-bottom: 1.5rem;
+  border-bottom: none !important;
+}
+.card-text {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.7rem;
+  color: #17a9a2;
+  padding-left: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.header {
+  width: 100%;
+  height: 20%;
+}
+#location,
+#person {
+  display: none;
+}
+
+.card-title {
+  color: #086c7c;
+  font-size: larger;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.btn3 {
+  background-color: #086c7c;
+  color: #fff;
+}
+
+.btn3:hover {
+  border: 1px solid #086c7c;
+  background: none;
+  color: #086c7c;
+}
+
+@media screen and (max-width: 500px) {
+  .buttonBar {
+    width: 100%;
+  }
+  .btn {
+    width: 80px;
+    font-size: small;
+  }
+  .btn .button-icon {
+    display: none;
+  }
+  .card {
+    width: 100%;
+  }
+  .card-text {
+    font-size: small;
+    line-height: normal;
+    padding-left: 0%;
+    padding-bottom: 0%;
+  }
+  .btn3 {
+    background-color: #086c7c;
+    color: #fff;
+    width: 130px;
+  }
+  .card-header {
+    font-size: small;
+  }
+  .menu {
+    position: absolute;
+    display: none;
+    height: 216%;
+    width: 113px;
+    background-color: #2f3640;
+    top: 70px;
+    left: 0%;
+    text-align: center;
+    z-index: 1;
+  }
+  .menu li {
+    display: block;
+    margin-left: 26px;
+  }
+  #icon {
+    display: inline;
+    position: absolute;
+    left: 40%;
+  }
+  mat-button-toggle-group {
+    width: 310px;
+    padding: 5px;
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .res {
+    font-size: small;
+  }
+  .buttonBar {
+    width: 100%;
+  }
+  .btn {
+    width: 80px;
+    font-size: small;
+  }
+  .button-icon {
+    display: none;
+  }
+  .card {
+    width: 100%;
+  }
+  .card-text {
+    font-size: small;
+    line-height: normal;
+    padding-left: 0%;
+    padding-bottom: 0%;
+  }
+  .btn3 {
+    background-color: #086c7c;
+    color: #fff;
+    width: 130px;
+  }
+  .card-header {
+    font-size: small;
+  }
+  .menu li {
+    display: inline;
+    padding: 10px;
+    width: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  /* .menu li:hover{
+    color:#086C7C;
+    background-color: #f6e6cb;
+    border-radius: 30px;
+  } */
+}
+.info-row {
+  border-bottom: 1px #f2f2f2 solid;
+}
+agm-map {
+  height: 40vh;
+  width: 100%;
+}
+.link-btn {
+  font-size: 18px;
+  font-weight: bold;
+  color: #17a9a2;
+  text-decoration: none;
+  text-decoration-line: none;
+  span {
+    position: absolute;
+    margin-inline-start: 5px;
+    font-size: 32px;
+    top: -3px;
+  }
+  span:hover {
+    transition: 0.9s;
+    transform: rotateY(180deg);
+  }
+}
+.btn-toggle-with-border {
+  width: 135px;
+  border-inline-end: 1px #d8d8d8 solid;
+  color: #8b8b8b;
+}
+.btn-toggle-without-border {
+  width: 135px;
+  border: none !important;
+  color: #8b8b8b;
+}
+mat-button-toggle-group {
+  padding: 5px;
+  background-color: white;
+}
+
+

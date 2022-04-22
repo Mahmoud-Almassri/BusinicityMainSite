@@ -1,0 +1,178 @@
+<div class="text-center">
+    <h1>{{step == 1 ? ('Auth.signUp.signUp' | translate) : ('Auth.signUp.contLoginInfo'|translate)}}</h1>
+</div>
+
+<div class="container">
+    <mat-horizontal-stepper [disableRipple]="true" #stepper>
+        <mat-step [stepControl]="signUpForm">
+            <form [formGroup]="signUpForm">
+                <mat-form-field class='col-md-12'>
+                    <mat-label>{{ 'Auth.signUp.emailAddress' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='email' />
+                    <mat-error *ngIf="signUpForm.get('email').invalid" style="color: red !important;">{{ 'Auth.signUp.EmailError' | translate }}</mat-error>
+                </mat-form-field>
+                <mat-form-field class='col-md-6'>
+                    <mat-label>{{ 'Auth.signUp.firstName' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='firstName' />
+                    <mat-error *ngIf="signUpForm.get('firstName').invalid" style="color: red !important;">{{ 'Auth.signUp.NameError' | translate }}</mat-error>
+
+                </mat-form-field>
+
+
+                <mat-form-field class='col-md-6'>
+                    <mat-label>{{ 'Auth.signUp.secondName' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='secondName' />
+                    <mat-error *ngIf="signUpForm.get('secondName').invalid" style="color: red !important;">{{ 'Auth.signUp.NameError' | translate }}</mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field class='col-md-6'>
+                    <mat-label>{{ 'Auth.signUp.thirdName' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='thirdName' />
+                    <mat-error *ngIf="signUpForm.get('thirdName').invalid" style="color: red !important;">{{ 'Auth.signUp.NameError' | translate }}</mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field class='col-md-6'>
+                    <mat-label>{{ 'Auth.signUp.fourthName' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='lastName' />
+                    <mat-error *ngIf="signUpForm.get('lastName').invalid" style="color: red !important;">{{ 'Auth.signUp.NameError' | translate }}</mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field class='col-md-12' floatLabel="always">
+                    <mat-label>{{ 'Auth.signUp.phoneNumber' | translate }}</mat-label>
+                        <label for="floatField" class="mobileNo" >{{keyNumber}}</label>
+                        <input type="text" class="pl-5" minlength="9" maxlength="9" matInput formControlName='phoneNumber' />
+                    <mat-error *ngIf="signUpForm.get('phoneNumber').invalid" style="color: red !important;">{{ 'Auth.signUp.MobileError' | translate }}</mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field class='col-md-12'>
+                    <mat-label>{{ 'Auth.signUp.address' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='address' />
+                    <mat-error *ngIf="signUpForm.get('address').invalid" style="color: red !important;">{{ 'Auth.signUp.AddressError' | translate }}</mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field class='col-md-12'>
+                    <mat-label>{{ 'Auth.signUp.password' | translate }}</mat-label>
+                    <input matInput placeholder="{{'Auth.signUp.sixCharactersAtLeast' | translate}}"
+                        [type]="hidePassword ? 'password' : 'text'" type="password" formControlName='password' />
+                    <i class="fa fa-eye" matSuffix (click)="hidePassword = !hidePassword"></i>
+                </mat-form-field>
+
+                <mat-form-field class='col-md-12'>
+                    <mat-label>{{ 'Auth.signUp.confirmPassword' | translate }}</mat-label>
+                    <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" type="password"
+                        formControlName='confirmPassword' />
+                    <i class="fa fa-eye" matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"></i>
+                    <mat-error *ngIf="checkPassword()" style="color: red !important;">Password Not match</mat-error>
+                </mat-form-field>
+
+                <div class="col-md-12 text-center">
+                    <button mat-flat-button class="col-md-12" color="primary" (click)="goForward(stepper)" >
+                        {{ 'Auth.signUp.signUp' | translate }}
+                    </button>
+                </div>
+
+                <br />
+
+                <div class="col-md-12 text-center">
+                    {{ 'Auth.signUp.alreadyHaveAccount' | translate }} <a [routerLink]="['/auth/login']">{{ 'Auth.login.signIn' | translate }}</a>
+                </div>
+
+                <br />
+
+                <div class="separator">{{ 'Auth.signUp.or' | translate }}</div>
+
+                <br />
+
+                <div class="col-md-12 text-center">
+                    <button mat-flat-button class="col-md-12 linkedin-button">
+                        <div class="d-flex justify-content-center social">
+                            <img src="../../../assets/icons/logo-linkedin-icon.png" width="28px" height="28px" />
+                            &nbsp; &nbsp;
+                            <div>LinkedIn</div>
+                        </div>
+                    </button>
+                </div>
+
+                <br />
+
+                <div class="col-md-12 text-center">
+                    <button mat-flat-button class="col-md-12 google-button" (click)="externalLogin()">
+                        <div class="d-flex justify-content-center social">
+                            <img src="../../../assets/icons/Logo-google-icon.png" width="30px" height="30px" />
+                            &nbsp;&nbsp;
+                            <div>Google</div>
+                        </div>
+                    </button>
+
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="personForm">
+            <form [formGroup]="personForm">
+
+                <mat-form-field class='col-md-6'>
+                    <mat-label>{{ 'Auth.signUp.firstName' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='firstName' />
+                </mat-form-field>
+
+
+                <mat-form-field class='col-md-6'>
+                    <mat-label>{{ 'Auth.signUp.secondName' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='secondName' />
+                </mat-form-field>
+
+                <mat-form-field class='col-md-6'>
+                    <mat-label>{{ 'Auth.signUp.thirdName' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='thirdName' />
+                </mat-form-field>
+
+                <mat-form-field class='col-md-6'>
+                    <mat-label>{{ 'Auth.signUp.fourthName' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='lastName' />
+                </mat-form-field>
+
+                <mat-form-field class='col-md-12'>
+                    <mat-label>{{ 'Auth.signUp.emailAddress' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='personalEmail' />
+                </mat-form-field>
+
+                <mat-form-field class='col-md-12'>
+                    <mat-label>{{ 'Auth.signUp.phoneNumber' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='mobileNo' />
+                </mat-form-field>
+
+
+
+                <mat-form-field class='col-md-12'>
+                    <mat-label>{{ 'Person.Salutation' | translate }}</mat-label>
+                    <input type="text" matInput formControlName='saluation' />
+                </mat-form-field>
+
+                <div class="col-md-12">
+                    <mat-radio-group class="col-12" aria-label="Select an option" formControlName="gender">
+                        <mat-radio-button value="Male" class="col-4">Male</mat-radio-button>
+                        <mat-radio-button value="Female" class="col-4">Female</mat-radio-button>
+                      </mat-radio-group>
+                </div>
+                <br/>
+                <div class="row text-center">
+                    <div class="col-md-6 mb-2" >
+                        <button mat-flat-button class="col-md-12" color="primary" (click)="onAddPerson()">
+                            {{ 'Auth.signUp.save' | translate}}
+                        </button>
+                    </div>
+                    <div class="col-md-6" >
+                        <button mat-flat-button class="col-md-12" color="primary" (click)="onSkip()">
+                            {{ 'Auth.signUp.skip' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>
